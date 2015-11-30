@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>CBADatamining</name>
+    <name>Datamining files creation</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
+        <parameter>
+            <name>Code</name>
+            <default_value/>
+            <description/>
+        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -89,10 +95,989 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>get datamining view data</from><to>save in csv</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get datamining for model</from><to>model save in csv</to><enabled>Y</enabled> </hop>
+  <hop> <from>model save in csv</from><to>ARFF Output for model</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get rows from result</from><to>Get datamining for model</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>get datamining view data</name>
+    <name>ARFF Output for model</name>
+    <type>ArffOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<arff_file_name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;models&#x2f;&#x24;&#x7b;Code&#x7d;_datamine_for_model</arff_file_name>
+<relation_name>MyRelation</relation_name>
+<file_format>Unix</file_format>
+<encoding>UTF-8</encoding>
+    <arff>
+        <arff_field><field_name>date</field_name>
+<kettle_type>3</kettle_type>
+<arff_type>2</arff_type>
+</arff_field>
+        <arff_field><field_name>stockname</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+</arff_field>
+        <arff_field><field_name>price</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>aord_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>aord_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>aord_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>aord_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>aord_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>aord_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>n225_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>n225_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>n225_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>n225_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>n225_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>n225_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ndx_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ndx_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ndx_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ndx_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ndx_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ndx_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>dji_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>dji_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>dji_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>dji_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>dji_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>dji_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ftse_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ftse_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ftse_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ftse_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ftse_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ftse_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gdaxi_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gdaxi_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gdaxi_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gdaxi_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gdaxi_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gdaxi_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssec_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssec_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssec_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssec_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssec_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssec_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>hsi_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>hsi_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>hsi_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>hsi_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>hsi_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>hsi_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bsesn_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bsesn_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bsesn_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bsesn_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bsesn_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bsesn_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>jkse_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>jkse_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>jkse_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>jkse_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>jkse_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>jkse_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nz50_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nz50_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nz50_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nz50_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nz50_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nz50_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>sti_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>sti_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>sti_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>sti_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>sti_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>sti_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ks11_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ks11_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ks11_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ks11_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ks11_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ks11_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>twii_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>twii_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>twii_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>twii_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>twii_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>twii_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bvsp_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bvsp_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bvsp_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bvsp_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bvsp_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bvsp_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gsptse_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gsptse_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gsptse_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gsptse_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gsptse_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gsptse_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>mxx_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>mxx_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>mxx_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>mxx_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>mxx_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>mxx_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gspc_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gspc_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gspc_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gspc_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gspc_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gspc_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>atx_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>atx_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>atx_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>atx_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>atx_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>atx_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bfx_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bfx_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bfx_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bfx_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bfx_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>bfx_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>fchi_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>fchi_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>fchi_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>fchi_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>fchi_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>fchi_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>oseax_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>oseax_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>oseax_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>oseax_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>oseax_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>oseax_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>omxspi_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>omxspi_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>omxspi_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>omxspi_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>omxspi_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>omxspi_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssmi_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssmi_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssmi_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssmi_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssmi_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>ssmi_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gd_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gd_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gd_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gd_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gd_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gd_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurusd_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurusd_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurusd_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurusd_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurusd_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurusd_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdjpy_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdjpy_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdjpy_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdjpy_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdjpy_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdjpy_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdchf_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdchf_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdchf_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdchf_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdchf_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdchf_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpusd_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpusd_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpusd_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpusd_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpusd_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpusd_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdcad_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdcad_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdcad_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdcad_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdcad_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>usdcad_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurgbp_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurgbp_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurgbp_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurgbp_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurgbp_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurgbp_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurjpy_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurjpy_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurjpy_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurjpy_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurjpy_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurjpy_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurchf_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurchf_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurchf_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurchf_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurchf_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>eurchf_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>audusd_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>audusd_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>audusd_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>audusd_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>audusd_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>audusd_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpjpy_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpjpy_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpjpy_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpjpy_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpjpy_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpjpy_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>chfjpy_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>chfjpy_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>chfjpy_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>chfjpy_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>chfjpy_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>chfjpy_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpchf_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpchf_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpchf_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpchf_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpchf_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>gbpchf_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nzdusd_a1</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nzdusd_a2</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nzdusd_a3</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nzdusd_a4</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nzdusd_a5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>nzdusd_a6</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+        <arff_field><field_name>next5</field_name>
+<kettle_type>1</kettle_type>
+<arff_type>0</arff_type>
+</arff_field>
+    </arff>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>733</xloc>
+      <yloc>81</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get datamining for model</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -103,22 +1088,22 @@
            <schema_name/>
            </partitioning>
     <connection>postgres</connection>
-    <sql>SELECT&#xa;  &#x22;date&#x22;&#xa;, stock&#xa;, &#x28;cba&#x29;.a1&#xa;, &#x28;cba&#x29;.a2&#xa;, &#x28;cba&#x29;.a3&#xa;, &#x28;cba&#x29;.a4&#xa;, &#x28;cba&#x29;.a5&#xa;, &#x28;cba&#x29;.a6&#xa;, &#x28;aord&#x29;.a1&#xa;, &#x28;aord&#x29;.a2&#xa;, &#x28;aord&#x29;.a3&#xa;, &#x28;aord&#x29;.a4&#xa;, &#x28;aord&#x29;.a5&#xa;, &#x28;aord&#x29;.a6&#xa;, &#x28;n225&#x29;.a1&#xa;, &#x28;n225&#x29;.a2&#xa;, &#x28;n225&#x29;.a3&#xa;, &#x28;n225&#x29;.a4&#xa;, &#x28;n225&#x29;.a5&#xa;, &#x28;n225&#x29;.a6&#xa;, &#x28;ndx&#x29;.a1&#xa;, &#x28;ndx&#x29;.a2&#xa;, &#x28;ndx&#x29;.a3&#xa;, &#x28;ndx&#x29;.a4&#xa;, &#x28;ndx&#x29;.a5&#xa;, &#x28;ndx&#x29;.a6&#xa;, &#x28;dji&#x29;.a1&#xa;, &#x28;dji&#x29;.a2&#xa;, &#x28;dji&#x29;.a3&#xa;, &#x28;dji&#x29;.a4&#xa;, &#x28;dji&#x29;.a5&#xa;, &#x28;dji&#x29;.a6&#xa;, &#x28;ftse&#x29;.a1&#xa;, &#x28;ftse&#x29;.a2&#xa;, &#x28;ftse&#x29;.a3&#xa;, &#x28;ftse&#x29;.a4&#xa;, &#x28;ftse&#x29;.a5&#xa;, &#x28;ftse&#x29;.a6&#xa;, &#x28;gdaxi&#x29;.a1&#xa;, &#x28;gdaxi&#x29;.a2&#xa;, &#x28;gdaxi&#x29;.a3&#xa;, &#x28;gdaxi&#x29;.a4&#xa;, &#x28;gdaxi&#x29;.a5&#xa;, &#x28;gdaxi&#x29;.a6&#xa;, &#x28;ssec&#x29;.a1&#xa;, &#x28;ssec&#x29;.a2&#xa;, &#x28;ssec&#x29;.a3&#xa;, &#x28;ssec&#x29;.a4&#xa;, &#x28;ssec&#x29;.a5&#xa;, &#x28;ssec&#x29;.a6&#xa;, &#x28;hsi&#x29;.a1&#xa;, &#x28;hsi&#x29;.a2&#xa;, &#x28;hsi&#x29;.a3&#xa;, &#x28;hsi&#x29;.a4&#xa;, &#x28;hsi&#x29;.a5&#xa;, &#x28;hsi&#x29;.a6&#xa;, &#x28;bsesn&#x29;.a1&#xa;, &#x28;bsesn&#x29;.a2&#xa;, &#x28;bsesn&#x29;.a3&#xa;, &#x28;bsesn&#x29;.a4&#xa;, &#x28;bsesn&#x29;.a5&#xa;, &#x28;bsesn&#x29;.a6&#xa;, &#x28;jkse&#x29;.a1&#xa;, &#x28;jkse&#x29;.a2&#xa;, &#x28;jkse&#x29;.a3&#xa;, &#x28;jkse&#x29;.a4&#xa;, &#x28;jkse&#x29;.a5&#xa;, &#x28;jkse&#x29;.a6&#xa;, &#x28;nz50&#x29;.a1&#xa;, &#x28;nz50&#x29;.a2&#xa;, &#x28;nz50&#x29;.a3&#xa;, &#x28;nz50&#x29;.a4&#xa;, &#x28;nz50&#x29;.a5&#xa;, &#x28;nz50&#x29;.a6&#xa;, &#x28;sti&#x29;.a1&#xa;, &#x28;sti&#x29;.a2&#xa;, &#x28;sti&#x29;.a3&#xa;, &#x28;sti&#x29;.a4&#xa;, &#x28;sti&#x29;.a5&#xa;, &#x28;sti&#x29;.a6&#xa;, &#x28;ks11&#x29;.a1&#xa;, &#x28;ks11&#x29;.a2&#xa;, &#x28;ks11&#x29;.a3&#xa;, &#x28;ks11&#x29;.a4&#xa;, &#x28;ks11&#x29;.a5&#xa;, &#x28;ks11&#x29;.a6&#xa;, &#x28;twii&#x29;.a1&#xa;, &#x28;twii&#x29;.a2&#xa;, &#x28;twii&#x29;.a3&#xa;, &#x28;twii&#x29;.a4&#xa;, &#x28;twii&#x29;.a5&#xa;, &#x28;twii&#x29;.a6&#xa;, &#x28;bvsp&#x29;.a1&#xa;, &#x28;bvsp&#x29;.a2&#xa;, &#x28;bvsp&#x29;.a3&#xa;, &#x28;bvsp&#x29;.a4&#xa;, &#x28;bvsp&#x29;.a5&#xa;, &#x28;bvsp&#x29;.a6&#xa;, &#x28;gsptse&#x29;.a1&#xa;, &#x28;gsptse&#x29;.a2&#xa;, &#x28;gsptse&#x29;.a3&#xa;, &#x28;gsptse&#x29;.a4&#xa;, &#x28;gsptse&#x29;.a5&#xa;, &#x28;gsptse&#x29;.a6&#xa;, &#x28;mxx&#x29;.a1&#xa;, &#x28;mxx&#x29;.a2&#xa;, &#x28;mxx&#x29;.a3&#xa;, &#x28;mxx&#x29;.a4&#xa;, &#x28;mxx&#x29;.a5&#xa;, &#x28;mxx&#x29;.a6&#xa;, &#x28;gspc&#x29;.a1&#xa;, &#x28;gspc&#x29;.a2&#xa;, &#x28;gspc&#x29;.a3&#xa;, &#x28;gspc&#x29;.a4&#xa;, &#x28;gspc&#x29;.a5&#xa;, &#x28;gspc&#x29;.a6&#xa;, &#x28;atx&#x29;.a1&#xa;, &#x28;atx&#x29;.a2&#xa;, &#x28;atx&#x29;.a3&#xa;, &#x28;atx&#x29;.a4&#xa;, &#x28;atx&#x29;.a5&#xa;, &#x28;atx&#x29;.a6&#xa;, &#x28;bfx&#x29;.a1&#xa;, &#x28;bfx&#x29;.a2&#xa;, &#x28;bfx&#x29;.a3&#xa;, &#x28;bfx&#x29;.a4&#xa;, &#x28;bfx&#x29;.a5&#xa;, &#x28;bfx&#x29;.a6&#xa;, &#x28;fchi&#x29;.a1&#xa;, &#x28;fchi&#x29;.a2&#xa;, &#x28;fchi&#x29;.a3&#xa;, &#x28;fchi&#x29;.a4&#xa;, &#x28;fchi&#x29;.a5&#xa;, &#x28;fchi&#x29;.a6&#xa;, &#x28;oseax&#x29;.a1&#xa;, &#x28;oseax&#x29;.a2&#xa;, &#x28;oseax&#x29;.a3&#xa;, &#x28;oseax&#x29;.a4&#xa;, &#x28;oseax&#x29;.a5&#xa;, &#x28;oseax&#x29;.a6&#xa;, &#x28;omxspi&#x29;.a1&#xa;, &#x28;omxspi&#x29;.a2&#xa;, &#x28;omxspi&#x29;.a3&#xa;, &#x28;omxspi&#x29;.a4&#xa;, &#x28;omxspi&#x29;.a5&#xa;, &#x28;omxspi&#x29;.a6&#xa;, &#x28;ssmi&#x29;.a1&#xa;, &#x28;ssmi&#x29;.a2&#xa;, &#x28;ssmi&#x29;.a3&#xa;, &#x28;ssmi&#x29;.a4&#xa;, &#x28;ssmi&#x29;.a5&#xa;, &#x28;ssmi&#x29;.a6&#xa;, &#x28;gd&#x29;.a1&#xa;, &#x28;gd&#x29;.a2&#xa;, &#x28;gd&#x29;.a3&#xa;, &#x28;gd&#x29;.a4&#xa;, &#x28;gd&#x29;.a5&#xa;, &#x28;gd&#x29;.a6&#xa;, &#x28;eurusd&#x29;.a1&#xa;, &#x28;eurusd&#x29;.a2&#xa;, &#x28;eurusd&#x29;.a3&#xa;, &#x28;eurusd&#x29;.a4&#xa;, &#x28;eurusd&#x29;.a5&#xa;, &#x28;eurusd&#x29;.a6&#xa;, &#x28;usdjpy&#x29;.a1&#xa;, &#x28;usdjpy&#x29;.a2&#xa;, &#x28;usdjpy&#x29;.a3&#xa;, &#x28;usdjpy&#x29;.a4&#xa;, &#x28;usdjpy&#x29;.a5&#xa;, &#x28;usdjpy&#x29;.a6&#xa;, &#x28;usdchf&#x29;.a1&#xa;, &#x28;usdchf&#x29;.a2&#xa;, &#x28;usdchf&#x29;.a3&#xa;, &#x28;usdchf&#x29;.a4&#xa;, &#x28;usdchf&#x29;.a5&#xa;, &#x28;usdchf&#x29;.a6&#xa;, &#x28;gbpusd&#x29;.a1&#xa;, &#x28;gbpusd&#x29;.a2&#xa;, &#x28;gbpusd&#x29;.a3&#xa;, &#x28;gbpusd&#x29;.a4&#xa;, &#x28;gbpusd&#x29;.a5&#xa;, &#x28;gbpusd&#x29;.a6&#xa;, &#x28;usdcad&#x29;.a1&#xa;, &#x28;usdcad&#x29;.a2&#xa;, &#x28;usdcad&#x29;.a3&#xa;, &#x28;usdcad&#x29;.a4&#xa;, &#x28;usdcad&#x29;.a5&#xa;, &#x28;usdcad&#x29;.a6&#xa;, &#x28;eurgbp&#x29;.a1&#xa;, &#x28;eurgbp&#x29;.a2&#xa;, &#x28;eurgbp&#x29;.a3&#xa;, &#x28;eurgbp&#x29;.a4&#xa;, &#x28;eurgbp&#x29;.a5&#xa;, &#x28;eurgbp&#x29;.a6&#xa;, &#x28;eurjpy&#x29;.a1&#xa;, &#x28;eurjpy&#x29;.a2&#xa;, &#x28;eurjpy&#x29;.a3&#xa;, &#x28;eurjpy&#x29;.a4&#xa;, &#x28;eurjpy&#x29;.a5&#xa;, &#x28;eurjpy&#x29;.a6&#xa;, &#x28;eurchf&#x29;.a1&#xa;, &#x28;eurchf&#x29;.a2&#xa;, &#x28;eurchf&#x29;.a3&#xa;, &#x28;eurchf&#x29;.a4&#xa;, &#x28;eurchf&#x29;.a5&#xa;, &#x28;eurchf&#x29;.a6&#xa;, &#x28;audusd&#x29;.a1&#xa;, &#x28;audusd&#x29;.a2&#xa;, &#x28;audusd&#x29;.a3&#xa;, &#x28;audusd&#x29;.a4&#xa;, &#x28;audusd&#x29;.a5&#xa;, &#x28;audusd&#x29;.a6&#xa;, &#x28;gbpjpy&#x29;.a1&#xa;, &#x28;gbpjpy&#x29;.a2&#xa;, &#x28;gbpjpy&#x29;.a3&#xa;, &#x28;gbpjpy&#x29;.a4&#xa;, &#x28;gbpjpy&#x29;.a5&#xa;, &#x28;gbpjpy&#x29;.a6&#xa;, &#x28;chfjpy&#x29;.a1&#xa;, &#x28;chfjpy&#x29;.a2&#xa;, &#x28;chfjpy&#x29;.a3&#xa;, &#x28;chfjpy&#x29;.a4&#xa;, &#x28;chfjpy&#x29;.a5&#xa;, &#x28;chfjpy&#x29;.a6&#xa;, &#x28;gbpchf&#x29;.a1&#xa;, &#x28;gbpchf&#x29;.a2&#xa;, &#x28;gbpchf&#x29;.a3&#xa;, &#x28;gbpchf&#x29;.a4&#xa;, &#x28;gbpchf&#x29;.a5&#xa;, &#x28;gbpchf&#x29;.a6&#xa;, &#x28;nzdusd&#x29;.a1&#xa;, &#x28;nzdusd&#x29;.a2&#xa;, &#x28;nzdusd&#x29;.a3&#xa;, &#x28;nzdusd&#x29;.a4&#xa;, &#x28;nzdusd&#x29;.a5&#xa;, &#x28;nzdusd&#x29;.a6&#xa;, next5&#xa;FROM datamining_view&#xa;where stock &#x3d; &#x27;CBA.AX&#x27;&#xa;</sql>
+    <sql>SELECT&#xa;  &#x22;date&#x22;&#xa;, stockname&#xa;, price&#xa;, &#x28;stockavg&#x29;.a1          as a1&#xa;, &#x28;stockavg&#x29;.a2          as a2&#xa;, &#x28;stockavg&#x29;.a3          as a3&#xa;, &#x28;stockavg&#x29;.a4          as a4&#xa;, &#x28;stockavg&#x29;.a5          as a5&#xa;, &#x28;stockavg&#x29;.a6          as a6&#xa;, &#x28;aord&#x29;.a1         as aord_a1&#xa;, &#x28;aord&#x29;.a2         as aord_a2&#xa;, &#x28;aord&#x29;.a3         as aord_a3&#xa;, &#x28;aord&#x29;.a4         as aord_a4&#xa;, &#x28;aord&#x29;.a5         as aord_a5&#xa;, &#x28;aord&#x29;.a6         as aord_a6&#xa;, &#x28;n225&#x29;.a1         as n225_a1&#xa;, &#x28;n225&#x29;.a2         as n225_a2&#xa;, &#x28;n225&#x29;.a3         as n225_a3&#xa;, &#x28;n225&#x29;.a4         as n225_a4&#xa;, &#x28;n225&#x29;.a5         as n225_a5&#xa;, &#x28;n225&#x29;.a6         as n225_a6&#xa;, &#x28;ndx&#x29;.a1          as ndx_a1&#xa;, &#x28;ndx&#x29;.a2          as ndx_a2&#xa;, &#x28;ndx&#x29;.a3          as ndx_a3&#xa;, &#x28;ndx&#x29;.a4          as ndx_a4&#xa;, &#x28;ndx&#x29;.a5          as ndx_a5&#xa;, &#x28;ndx&#x29;.a6          as ndx_a6&#xa;, &#x28;dji&#x29;.a1          as dji_a1&#xa;, &#x28;dji&#x29;.a2          as dji_a2&#xa;, &#x28;dji&#x29;.a3          as dji_a3&#xa;, &#x28;dji&#x29;.a4          as dji_a4&#xa;, &#x28;dji&#x29;.a5          as dji_a5&#xa;, &#x28;dji&#x29;.a6          as dji_a6&#xa;, &#x28;ftse&#x29;.a1         as ftse_a1&#xa;, &#x28;ftse&#x29;.a2         as ftse_a2&#xa;, &#x28;ftse&#x29;.a3         as ftse_a3&#xa;, &#x28;ftse&#x29;.a4         as ftse_a4&#xa;, &#x28;ftse&#x29;.a5         as ftse_a5&#xa;, &#x28;ftse&#x29;.a6         as ftse_a6&#xa;, &#x28;gdaxi&#x29;.a1        as gdaxi_a1&#xa;, &#x28;gdaxi&#x29;.a2        as gdaxi_a2&#xa;, &#x28;gdaxi&#x29;.a3        as gdaxi_a3&#xa;, &#x28;gdaxi&#x29;.a4        as gdaxi_a4&#xa;, &#x28;gdaxi&#x29;.a5        as gdaxi_a5&#xa;, &#x28;gdaxi&#x29;.a6        as gdaxi_a6&#xa;, &#x28;ssec&#x29;.a1         as ssec_a1&#xa;, &#x28;ssec&#x29;.a2         as ssec_a2&#xa;, &#x28;ssec&#x29;.a3         as ssec_a3&#xa;, &#x28;ssec&#x29;.a4         as ssec_a4&#xa;, &#x28;ssec&#x29;.a5         as ssec_a5&#xa;, &#x28;ssec&#x29;.a6         as ssec_a6&#xa;, &#x28;hsi&#x29;.a1          as hsi_a1&#xa;, &#x28;hsi&#x29;.a2          as hsi_a2&#xa;, &#x28;hsi&#x29;.a3          as hsi_a3&#xa;, &#x28;hsi&#x29;.a4          as hsi_a4&#xa;, &#x28;hsi&#x29;.a5          as hsi_a5&#xa;, &#x28;hsi&#x29;.a6          as hsi_a6&#xa;, &#x28;bsesn&#x29;.a1        as bsesn_a1&#xa;, &#x28;bsesn&#x29;.a2        as bsesn_a2&#xa;, &#x28;bsesn&#x29;.a3        as bsesn_a3&#xa;, &#x28;bsesn&#x29;.a4        as bsesn_a4&#xa;, &#x28;bsesn&#x29;.a5        as bsesn_a5&#xa;, &#x28;bsesn&#x29;.a6        as bsesn_a6&#xa;, &#x28;jkse&#x29;.a1         as jkse_a1&#xa;, &#x28;jkse&#x29;.a2         as jkse_a2&#xa;, &#x28;jkse&#x29;.a3         as jkse_a3&#xa;, &#x28;jkse&#x29;.a4         as jkse_a4&#xa;, &#x28;jkse&#x29;.a5         as jkse_a5&#xa;, &#x28;jkse&#x29;.a6         as jkse_a6&#xa;, &#x28;nz50&#x29;.a1         as nz50_a1&#xa;, &#x28;nz50&#x29;.a2         as nz50_a2&#xa;, &#x28;nz50&#x29;.a3         as nz50_a3&#xa;, &#x28;nz50&#x29;.a4         as nz50_a4&#xa;, &#x28;nz50&#x29;.a5         as nz50_a5&#xa;, &#x28;nz50&#x29;.a6         as nz50_a6&#xa;, &#x28;sti&#x29;.a1          as sti_a1&#xa;, &#x28;sti&#x29;.a2          as sti_a2&#xa;, &#x28;sti&#x29;.a3          as sti_a3&#xa;, &#x28;sti&#x29;.a4          as sti_a4&#xa;, &#x28;sti&#x29;.a5          as sti_a5&#xa;, &#x28;sti&#x29;.a6          as sti_a6&#xa;, &#x28;ks11&#x29;.a1         as ks11_a1&#xa;, &#x28;ks11&#x29;.a2         as ks11_a2&#xa;, &#x28;ks11&#x29;.a3         as ks11_a3&#xa;, &#x28;ks11&#x29;.a4         as ks11_a4&#xa;, &#x28;ks11&#x29;.a5         as ks11_a5&#xa;, &#x28;ks11&#x29;.a6         as ks11_a6&#xa;, &#x28;twii&#x29;.a1         as twii_a1&#xa;, &#x28;twii&#x29;.a2         as twii_a2&#xa;, &#x28;twii&#x29;.a3         as twii_a3&#xa;, &#x28;twii&#x29;.a4         as twii_a4&#xa;, &#x28;twii&#x29;.a5         as twii_a5&#xa;, &#x28;twii&#x29;.a6         as twii_a6&#xa;, &#x28;bvsp&#x29;.a1         as bvsp_a1&#xa;, &#x28;bvsp&#x29;.a2         as bvsp_a2&#xa;, &#x28;bvsp&#x29;.a3         as bvsp_a3&#xa;, &#x28;bvsp&#x29;.a4         as bvsp_a4&#xa;, &#x28;bvsp&#x29;.a5         as bvsp_a5&#xa;, &#x28;bvsp&#x29;.a6         as bvsp_a6&#xa;, &#x28;gsptse&#x29;.a1       as gsptse_a1&#xa;, &#x28;gsptse&#x29;.a2       as gsptse_a2&#xa;, &#x28;gsptse&#x29;.a3       as gsptse_a3&#xa;, &#x28;gsptse&#x29;.a4       as gsptse_a4&#xa;, &#x28;gsptse&#x29;.a5       as gsptse_a5&#xa;, &#x28;gsptse&#x29;.a6       as gsptse_a6&#xa;, &#x28;mxx&#x29;.a1          as mxx_a1&#xa;, &#x28;mxx&#x29;.a2          as mxx_a2&#xa;, &#x28;mxx&#x29;.a3          as mxx_a3&#xa;, &#x28;mxx&#x29;.a4          as mxx_a4&#xa;, &#x28;mxx&#x29;.a5          as mxx_a5&#xa;, &#x28;mxx&#x29;.a6          as mxx_a6&#xa;, &#x28;gspc&#x29;.a1         as gspc_a1&#xa;, &#x28;gspc&#x29;.a2         as gspc_a2&#xa;, &#x28;gspc&#x29;.a3         as gspc_a3&#xa;, &#x28;gspc&#x29;.a4         as gspc_a4&#xa;, &#x28;gspc&#x29;.a5         as gspc_a5&#xa;, &#x28;gspc&#x29;.a6         as gspc_a6&#xa;, &#x28;atx&#x29;.a1          as atx_a1&#xa;, &#x28;atx&#x29;.a2          as atx_a2&#xa;, &#x28;atx&#x29;.a3          as atx_a3&#xa;, &#x28;atx&#x29;.a4          as atx_a4&#xa;, &#x28;atx&#x29;.a5          as atx_a5&#xa;, &#x28;atx&#x29;.a6          as atx_a6&#xa;, &#x28;bfx&#x29;.a1          as bfx_a1&#xa;, &#x28;bfx&#x29;.a2          as bfx_a2&#xa;, &#x28;bfx&#x29;.a3          as bfx_a3&#xa;, &#x28;bfx&#x29;.a4          as bfx_a4&#xa;, &#x28;bfx&#x29;.a5          as bfx_a5&#xa;, &#x28;bfx&#x29;.a6          as bfx_a6&#xa;, &#x28;fchi&#x29;.a1         as fchi_a1&#xa;, &#x28;fchi&#x29;.a2         as fchi_a2&#xa;, &#x28;fchi&#x29;.a3         as fchi_a3&#xa;, &#x28;fchi&#x29;.a4         as fchi_a4&#xa;, &#x28;fchi&#x29;.a5         as fchi_a5&#xa;, &#x28;fchi&#x29;.a6         as fchi_a6&#xa;, &#x28;oseax&#x29;.a1        as oseax_a1&#xa;, &#x28;oseax&#x29;.a2        as oseax_a2&#xa;, &#x28;oseax&#x29;.a3        as oseax_a3&#xa;, &#x28;oseax&#x29;.a4        as oseax_a4&#xa;, &#x28;oseax&#x29;.a5        as oseax_a5&#xa;, &#x28;oseax&#x29;.a6        as oseax_a6&#xa;, &#x28;omxspi&#x29;.a1       as omxspi_a1&#xa;, &#x28;omxspi&#x29;.a2       as omxspi_a2&#xa;, &#x28;omxspi&#x29;.a3       as omxspi_a3&#xa;, &#x28;omxspi&#x29;.a4       as omxspi_a4&#xa;, &#x28;omxspi&#x29;.a5       as omxspi_a5&#xa;, &#x28;omxspi&#x29;.a6       as omxspi_a6&#xa;, &#x28;ssmi&#x29;.a1         as ssmi_a1&#xa;, &#x28;ssmi&#x29;.a2         as ssmi_a2&#xa;, &#x28;ssmi&#x29;.a3         as ssmi_a3&#xa;, &#x28;ssmi&#x29;.a4         as ssmi_a4&#xa;, &#x28;ssmi&#x29;.a5         as ssmi_a5&#xa;, &#x28;ssmi&#x29;.a6         as ssmi_a6&#xa;, &#x28;gd&#x29;.a1           as gd_a1&#xa;, &#x28;gd&#x29;.a2           as gd_a2&#xa;, &#x28;gd&#x29;.a3           as gd_a3&#xa;, &#x28;gd&#x29;.a4           as gd_a4&#xa;, &#x28;gd&#x29;.a5           as gd_a5&#xa;, &#x28;gd&#x29;.a6           as gd_a6&#xa;, &#x28;eurusd&#x29;.a1       as eurusd_a1&#xa;, &#x28;eurusd&#x29;.a2       as eurusd_a2&#xa;, &#x28;eurusd&#x29;.a3       as eurusd_a3&#xa;, &#x28;eurusd&#x29;.a4       as eurusd_a4&#xa;, &#x28;eurusd&#x29;.a5       as eurusd_a5&#xa;, &#x28;eurusd&#x29;.a6       as eurusd_a6&#xa;, &#x28;usdjpy&#x29;.a1       as usdjpy_a1&#xa;, &#x28;usdjpy&#x29;.a2       as usdjpy_a2&#xa;, &#x28;usdjpy&#x29;.a3       as usdjpy_a3&#xa;, &#x28;usdjpy&#x29;.a4       as usdjpy_a4&#xa;, &#x28;usdjpy&#x29;.a5       as usdjpy_a5&#xa;, &#x28;usdjpy&#x29;.a6       as usdjpy_a6&#xa;, &#x28;usdchf&#x29;.a1       as usdchf_a1&#xa;, &#x28;usdchf&#x29;.a2       as usdchf_a2&#xa;, &#x28;usdchf&#x29;.a3       as usdchf_a3&#xa;, &#x28;usdchf&#x29;.a4       as usdchf_a4&#xa;, &#x28;usdchf&#x29;.a5       as usdchf_a5&#xa;, &#x28;usdchf&#x29;.a6       as usdchf_a6&#xa;, &#x28;gbpusd&#x29;.a1       as gbpusd_a1&#xa;, &#x28;gbpusd&#x29;.a2       as gbpusd_a2&#xa;, &#x28;gbpusd&#x29;.a3       as gbpusd_a3&#xa;, &#x28;gbpusd&#x29;.a4       as gbpusd_a4&#xa;, &#x28;gbpusd&#x29;.a5       as gbpusd_a5&#xa;, &#x28;gbpusd&#x29;.a6       as gbpusd_a6&#xa;, &#x28;usdcad&#x29;.a1       as usdcad_a1&#xa;, &#x28;usdcad&#x29;.a2       as usdcad_a2&#xa;, &#x28;usdcad&#x29;.a3       as usdcad_a3&#xa;, &#x28;usdcad&#x29;.a4       as usdcad_a4&#xa;, &#x28;usdcad&#x29;.a5       as usdcad_a5&#xa;, &#x28;usdcad&#x29;.a6       as usdcad_a6&#xa;, &#x28;eurgbp&#x29;.a1       as eurgbp_a1&#xa;, &#x28;eurgbp&#x29;.a2       as eurgbp_a2&#xa;, &#x28;eurgbp&#x29;.a3       as eurgbp_a3&#xa;, &#x28;eurgbp&#x29;.a4       as eurgbp_a4&#xa;, &#x28;eurgbp&#x29;.a5       as eurgbp_a5&#xa;, &#x28;eurgbp&#x29;.a6       as eurgbp_a6&#xa;, &#x28;eurjpy&#x29;.a1       as eurjpy_a1&#xa;, &#x28;eurjpy&#x29;.a2       as eurjpy_a2&#xa;, &#x28;eurjpy&#x29;.a3       as eurjpy_a3&#xa;, &#x28;eurjpy&#x29;.a4       as eurjpy_a4&#xa;, &#x28;eurjpy&#x29;.a5       as eurjpy_a5&#xa;, &#x28;eurjpy&#x29;.a6       as eurjpy_a6&#xa;, &#x28;eurchf&#x29;.a1       as eurchf_a1&#xa;, &#x28;eurchf&#x29;.a2       as eurchf_a2&#xa;, &#x28;eurchf&#x29;.a3       as eurchf_a3&#xa;, &#x28;eurchf&#x29;.a4       as eurchf_a4&#xa;, &#x28;eurchf&#x29;.a5       as eurchf_a5&#xa;, &#x28;eurchf&#x29;.a6       as eurchf_a6&#xa;, &#x28;audusd&#x29;.a1       as audusd_a1&#xa;, &#x28;audusd&#x29;.a2       as audusd_a2&#xa;, &#x28;audusd&#x29;.a3       as audusd_a3&#xa;, &#x28;audusd&#x29;.a4       as audusd_a4&#xa;, &#x28;audusd&#x29;.a5       as audusd_a5&#xa;, &#x28;audusd&#x29;.a6       as audusd_a6&#xa;, &#x28;gbpjpy&#x29;.a1       as gbpjpy_a1&#xa;, &#x28;gbpjpy&#x29;.a2       as gbpjpy_a2&#xa;, &#x28;gbpjpy&#x29;.a3       as gbpjpy_a3&#xa;, &#x28;gbpjpy&#x29;.a4       as gbpjpy_a4&#xa;, &#x28;gbpjpy&#x29;.a5       as gbpjpy_a5&#xa;, &#x28;gbpjpy&#x29;.a6       as gbpjpy_a6&#xa;, &#x28;chfjpy&#x29;.a1       as chfjpy_a1&#xa;, &#x28;chfjpy&#x29;.a2       as chfjpy_a2&#xa;, &#x28;chfjpy&#x29;.a3       as chfjpy_a3&#xa;, &#x28;chfjpy&#x29;.a4       as chfjpy_a4&#xa;, &#x28;chfjpy&#x29;.a5       as chfjpy_a5&#xa;, &#x28;chfjpy&#x29;.a6       as chfjpy_a6&#xa;, &#x28;gbpchf&#x29;.a1       as gbpchf_a1&#xa;, &#x28;gbpchf&#x29;.a2       as gbpchf_a2&#xa;, &#x28;gbpchf&#x29;.a3       as gbpchf_a3&#xa;, &#x28;gbpchf&#x29;.a4       as gbpchf_a4&#xa;, &#x28;gbpchf&#x29;.a5       as gbpchf_a5&#xa;, &#x28;gbpchf&#x29;.a6       as gbpchf_a6&#xa;, &#x28;nzdusd&#x29;.a1       as nzdusd_a1&#xa;, &#x28;nzdusd&#x29;.a2       as nzdusd_a2&#xa;, &#x28;nzdusd&#x29;.a3       as nzdusd_a3&#xa;, &#x28;nzdusd&#x29;.a4       as nzdusd_a4&#xa;, &#x28;nzdusd&#x29;.a5       as nzdusd_a5&#xa;, &#x28;nzdusd&#x29;.a6       as nzdusd_a6&#xa;, next5&#xa;FROM datamining_view&#xa;where stockname &#x3d; &#x27;&#x24;&#x7b;Code&#x7d;&#x27;&#xa;offset 10&#xa;limit 500&#xa;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>159</xloc>
-      <yloc>96</yloc>
+      <xloc>257</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>save in csv</name>
+    <name>model save in csv</name>
     <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -142,7 +1127,7 @@
     <fileNameField/>
     <create_parent_folder>N</create_parent_folder>
     <file>
-      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;cba_datamine</name>
+      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;models&#x2f;&#x24;&#x7b;Code&#x7d;_datamine_for_model</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>Y</do_not_open_new_file_init>
@@ -154,7 +1139,7 @@
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
-      <add_to_result_filenames>N</add_to_result_filenames>
+      <add_to_result_filenames>Y</add_to_result_filenames>
       <pad>N</pad>
       <fast_dump>N</fast_dump>
       <splitevery>0</splitevery>
@@ -173,7 +1158,19 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>stock</name>
+        <name>stockname</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>price</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -186,8 +1183,8 @@
       </field>
       <field>
         <name>a1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -198,8 +1195,8 @@
       </field>
       <field>
         <name>a2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -210,8 +1207,8 @@
       </field>
       <field>
         <name>a3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -222,8 +1219,8 @@
       </field>
       <field>
         <name>a4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -234,8 +1231,8 @@
       </field>
       <field>
         <name>a5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -246,8 +1243,8 @@
       </field>
       <field>
         <name>a6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -257,9 +1254,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>aord_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -269,9 +1266,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>aord_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -281,9 +1278,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>aord_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -293,9 +1290,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>aord_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -305,9 +1302,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>aord_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -317,9 +1314,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_1</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>aord_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -329,9 +1326,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>n225_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -341,9 +1338,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>n225_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -353,9 +1350,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>n225_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -365,9 +1362,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>n225_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -377,9 +1374,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>n225_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -389,9 +1386,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_2</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>n225_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -401,9 +1398,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ndx_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -413,9 +1410,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ndx_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -425,9 +1422,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ndx_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -437,9 +1434,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ndx_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -449,9 +1446,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ndx_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -461,9 +1458,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_3</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ndx_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -473,9 +1470,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>dji_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -485,9 +1482,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>dji_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -497,9 +1494,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>dji_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -509,9 +1506,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>dji_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -521,9 +1518,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>dji_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -533,9 +1530,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_4</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>dji_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -545,9 +1542,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ftse_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -557,9 +1554,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ftse_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -569,9 +1566,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ftse_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -581,9 +1578,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ftse_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -593,9 +1590,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ftse_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -605,9 +1602,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ftse_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -617,9 +1614,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gdaxi_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -629,9 +1626,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gdaxi_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -641,9 +1638,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gdaxi_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -653,9 +1650,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gdaxi_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -665,9 +1662,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gdaxi_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -677,9 +1674,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_6</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gdaxi_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -689,9 +1686,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_7</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssec_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -701,9 +1698,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_7</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssec_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -713,9 +1710,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_7</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssec_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -725,9 +1722,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_7</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssec_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -737,9 +1734,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_7</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssec_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -749,9 +1746,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_7</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssec_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -761,9 +1758,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_8</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>hsi_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -773,9 +1770,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_8</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>hsi_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -785,9 +1782,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_8</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>hsi_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -797,9 +1794,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_8</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>hsi_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -809,9 +1806,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_8</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>hsi_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -821,9 +1818,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_8</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>hsi_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -833,9 +1830,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_9</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bsesn_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -845,9 +1842,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_9</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bsesn_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -857,9 +1854,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_9</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bsesn_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -869,9 +1866,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_9</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bsesn_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -881,9 +1878,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_9</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bsesn_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -893,9 +1890,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_9</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bsesn_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -905,9 +1902,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_10</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>jkse_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -917,9 +1914,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_10</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>jkse_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -929,9 +1926,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_10</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>jkse_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -941,9 +1938,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_10</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>jkse_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -953,9 +1950,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_10</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>jkse_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -965,9 +1962,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_10</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>jkse_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -977,9 +1974,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_11</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nz50_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -989,9 +1986,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_11</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nz50_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1001,9 +1998,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_11</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nz50_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1013,9 +2010,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_11</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nz50_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1025,9 +2022,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_11</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nz50_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1037,9 +2034,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_11</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nz50_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1049,9 +2046,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_12</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>sti_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1061,9 +2058,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_12</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>sti_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1073,9 +2070,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_12</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>sti_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1085,9 +2082,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_12</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>sti_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1097,9 +2094,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_12</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>sti_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1109,9 +2106,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_12</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>sti_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1121,9 +2118,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_13</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ks11_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1133,9 +2130,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_13</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ks11_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1145,9 +2142,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_13</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ks11_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1157,9 +2154,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_13</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ks11_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1169,9 +2166,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_13</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ks11_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1181,9 +2178,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_13</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ks11_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1193,9 +2190,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_14</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>twii_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1205,9 +2202,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_14</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>twii_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1217,9 +2214,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_14</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>twii_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1229,9 +2226,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_14</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>twii_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1241,9 +2238,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_14</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>twii_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1253,9 +2250,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_14</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>twii_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1265,9 +2262,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_15</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bvsp_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1277,9 +2274,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_15</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bvsp_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1289,9 +2286,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_15</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bvsp_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1301,9 +2298,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_15</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bvsp_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1313,9 +2310,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_15</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bvsp_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1325,9 +2322,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_15</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bvsp_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1337,9 +2334,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_16</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gsptse_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1349,9 +2346,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_16</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gsptse_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1361,9 +2358,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_16</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gsptse_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1373,9 +2370,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_16</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gsptse_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1385,9 +2382,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_16</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gsptse_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1397,9 +2394,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_16</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gsptse_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1409,9 +2406,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_17</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>mxx_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1421,9 +2418,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_17</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>mxx_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1433,9 +2430,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_17</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>mxx_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1445,9 +2442,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_17</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>mxx_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1457,9 +2454,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_17</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>mxx_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1469,9 +2466,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_17</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>mxx_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1481,9 +2478,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_18</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gspc_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1493,9 +2490,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_18</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gspc_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1505,9 +2502,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_18</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gspc_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1517,9 +2514,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_18</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gspc_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1529,9 +2526,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_18</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gspc_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1541,9 +2538,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_18</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gspc_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1553,9 +2550,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_19</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>atx_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1565,9 +2562,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_19</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>atx_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1577,9 +2574,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_19</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>atx_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1589,9 +2586,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_19</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>atx_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1601,9 +2598,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_19</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>atx_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1613,9 +2610,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_19</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>atx_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1625,9 +2622,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_20</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bfx_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1637,9 +2634,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_20</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bfx_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1649,9 +2646,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_20</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bfx_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1661,9 +2658,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_20</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bfx_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1673,9 +2670,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_20</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bfx_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1685,9 +2682,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_20</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>bfx_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1697,9 +2694,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_21</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>fchi_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1709,9 +2706,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_21</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>fchi_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1721,9 +2718,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_21</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>fchi_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1733,9 +2730,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_21</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>fchi_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1745,9 +2742,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_21</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>fchi_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1757,9 +2754,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_21</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>fchi_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1769,9 +2766,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_22</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>oseax_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1781,9 +2778,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_22</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>oseax_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1793,9 +2790,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_22</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>oseax_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1805,9 +2802,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_22</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>oseax_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1817,9 +2814,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_22</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>oseax_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1829,9 +2826,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_22</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>oseax_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1841,9 +2838,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_23</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>omxspi_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1853,9 +2850,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_23</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>omxspi_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1865,9 +2862,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_23</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>omxspi_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1877,9 +2874,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_23</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>omxspi_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1889,9 +2886,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_23</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>omxspi_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1901,9 +2898,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_23</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>omxspi_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1913,9 +2910,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_24</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssmi_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1925,9 +2922,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_24</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssmi_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1937,9 +2934,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_24</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssmi_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1949,9 +2946,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_24</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssmi_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1961,9 +2958,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_24</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssmi_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1973,9 +2970,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_24</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>ssmi_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1985,9 +2982,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_25</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gd_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -1997,9 +2994,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_25</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gd_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2009,9 +3006,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_25</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gd_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2021,9 +3018,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_25</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gd_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2033,9 +3030,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_25</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gd_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2045,9 +3042,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_25</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gd_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2057,9 +3054,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_26</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurusd_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2069,9 +3066,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_26</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurusd_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2081,9 +3078,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_26</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurusd_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2093,9 +3090,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_26</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurusd_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2105,9 +3102,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_26</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurusd_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2117,9 +3114,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_26</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurusd_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2129,9 +3126,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_27</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdjpy_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2141,9 +3138,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_27</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdjpy_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2153,9 +3150,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_27</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdjpy_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2165,9 +3162,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_27</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdjpy_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2177,9 +3174,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_27</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdjpy_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2189,9 +3186,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_27</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdjpy_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2201,9 +3198,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_28</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdchf_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2213,9 +3210,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_28</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdchf_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2225,9 +3222,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_28</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdchf_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2237,9 +3234,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_28</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdchf_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2249,9 +3246,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_28</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdchf_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2261,9 +3258,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_28</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdchf_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2273,9 +3270,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_29</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpusd_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2285,9 +3282,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_29</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpusd_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2297,9 +3294,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_29</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpusd_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2309,9 +3306,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_29</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpusd_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2321,9 +3318,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_29</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpusd_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2333,9 +3330,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_29</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpusd_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2345,9 +3342,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_30</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdcad_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2357,9 +3354,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_30</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdcad_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2369,9 +3366,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_30</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdcad_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2381,9 +3378,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_30</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdcad_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2393,9 +3390,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_30</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdcad_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2405,9 +3402,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_30</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>usdcad_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2417,9 +3414,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_31</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurgbp_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2429,9 +3426,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_31</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurgbp_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2441,9 +3438,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_31</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurgbp_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2453,9 +3450,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_31</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurgbp_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2465,9 +3462,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_31</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurgbp_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2477,9 +3474,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_31</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurgbp_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2489,9 +3486,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_32</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurjpy_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2501,9 +3498,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_32</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurjpy_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2513,9 +3510,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_32</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurjpy_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2525,9 +3522,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_32</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurjpy_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2537,9 +3534,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_32</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurjpy_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2549,9 +3546,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_32</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurjpy_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2561,9 +3558,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_33</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurchf_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2573,9 +3570,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_33</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurchf_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2585,9 +3582,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_33</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurchf_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2597,9 +3594,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_33</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurchf_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2609,9 +3606,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_33</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurchf_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2621,9 +3618,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_33</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>eurchf_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2633,9 +3630,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_34</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>audusd_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2645,9 +3642,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_34</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>audusd_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2657,9 +3654,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_34</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>audusd_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2669,9 +3666,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_34</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>audusd_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2681,9 +3678,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_34</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>audusd_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2693,9 +3690,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_34</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>audusd_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2705,9 +3702,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_35</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpjpy_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2717,9 +3714,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_35</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpjpy_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2729,9 +3726,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_35</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpjpy_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2741,9 +3738,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_35</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpjpy_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2753,9 +3750,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_35</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpjpy_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2765,9 +3762,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_35</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpjpy_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2777,9 +3774,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_36</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>chfjpy_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2789,9 +3786,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_36</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>chfjpy_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2801,9 +3798,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_36</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>chfjpy_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2813,9 +3810,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_36</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>chfjpy_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2825,9 +3822,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_36</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>chfjpy_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2837,9 +3834,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_36</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>chfjpy_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2849,9 +3846,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_37</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpchf_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2861,9 +3858,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_37</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpchf_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2873,9 +3870,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_37</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpchf_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2885,9 +3882,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_37</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpchf_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2897,9 +3894,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_37</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpchf_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2909,9 +3906,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_37</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>gbpchf_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2921,9 +3918,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a1_38</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nzdusd_a1</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2933,9 +3930,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a2_38</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nzdusd_a2</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2945,9 +3942,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a3_38</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nzdusd_a3</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2957,9 +3954,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a4_38</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nzdusd_a4</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2969,9 +3966,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a5_38</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nzdusd_a5</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2981,9 +3978,9 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>a6_38</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <name>nzdusd_a6</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -2994,8 +3991,8 @@
       </field>
       <field>
         <name>next5</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal>.</decimal>
         <group>,</group>
@@ -3007,8 +4004,39 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>396</xloc>
-      <yloc>122</yloc>
+      <xloc>524</xloc>
+      <yloc>82</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get rows from result</name>
+    <type>RowsFromResult</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>stock</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        </field>      <field>        <name>filename</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        </field>      <field>        <name>Code</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>115</xloc>
+      <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

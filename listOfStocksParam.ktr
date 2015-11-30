@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>get list of stocks</name>
+    <name>get list of stocks parametrised</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -9,6 +9,11 @@
     <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
+        <parameter>
+            <name>filename</name>
+            <default_value/>
+            <description/>
+        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -74,8 +79,7 @@
   <notepads>
   </notepads>
   <order>
-  <hop> <from>Modified Java Script Value</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
-  <hop> <from>stocks list</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
+  <hop> <from>stocks list</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Copy rows to result</name>
@@ -90,56 +94,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>220</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Modified Java Script Value</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>Y</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var stock &#x3d; &#x27;sss&#x27;&#x3b;&#xa;var uri &#x3d; &#x27;aaa&#x27;&#x3b;&#xa;var filename &#x3d; &#x27;bbb&#x27;&#x3b;&#xa;uri &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;real-chart.finance.yahoo.com&#x2f;table.csv&#x3f;s&#x3d;&#x27; &#x2b; Code.getString&#x28;&#x29; &#x2b; &#x27;&#x26;d&#x3d;9&#x26;e&#x3d;12&#x26;f&#x3d;2025&#x26;g&#x3d;d&#x26;a&#x3d;01&#x26;b&#x3d;01&#x26;c&#x3d;2015&#x26;ignore&#x3d;.csv&#x27;&#x3b;&#xa;stock &#x3d; Code.getString&#x28;&#x29;&#x3b;&#xa;filename &#x3d; stock &#x2b; &#x27;.csv&#x27;&#x3b;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>stock</name>
-        <rename>stock</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>uri</name>
-        <rename>uri</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>filename</name>
-        <rename>filename</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>Code</name>
-        <rename>Code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>405</xloc>
-      <yloc>223</yloc>
+      <xloc>692</xloc>
+      <yloc>222</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -155,7 +111,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;downloadstocklist.csv</filename>
+    <filename>&#x24;&#x7b;filename&#x7d;</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -183,7 +139,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>177</xloc>
+      <xloc>319</xloc>
       <yloc>222</yloc>
       <draw>Y</draw>
       </GUI>
