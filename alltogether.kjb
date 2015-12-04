@@ -11,6 +11,21 @@
   <modified_user>-</modified_user>
   <modified_date>2015&#x2f;10&#x2f;11 12&#x3a;19&#x3a;31.816</modified_date>
     <parameters>
+        <parameter>
+            <name>dateEnd</name>
+            <default_value>01&#x2f;01&#x2f;2025</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>dateStart</name>
+            <default_value>01&#x2f;01&#x2f;2015</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>source</name>
+            <default_value>yahoofin</default_value>
+            <description/>
+        </parameter>
     </parameters>
   <connection>
     <name>Postgres1</name>
@@ -75,8 +90,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>90</xloc>
-      <yloc>114</yloc>
+      <xloc>69</xloc>
+      <yloc>291</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -85,40 +100,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>895</xloc>
-      <yloc>115</yloc>
-      </entry>
-    <entry>
-      <name>stocks batch download</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;batchdownload.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <force_separate_logging>N</force_separate_logging>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>268</xloc>
-      <yloc>269</yloc>
+      <xloc>1020</xloc>
+      <yloc>270</yloc>
       </entry>
     <entry>
       <name>forex download and DB update</name>
@@ -149,8 +132,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>266</yloc>
+      <xloc>486</xloc>
+      <yloc>80</yloc>
       </entry>
     <entry>
       <name>Create datamining test sets for all stocks</name>
@@ -181,14 +164,170 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>725</xloc>
-      <yloc>278</yloc>
+      <xloc>663</xloc>
+      <yloc>308</yloc>
+      </entry>
+    <entry>
+      <name>forex  batch download</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;batchdownload.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>source</name>
+            <stream_name/>
+            <value>finam</value>
+            </parameter>            <parameter>            <name>dateStart</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>dateEnd</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>filename</name>
+            <stream_name/>
+            <value>forexlist.csv</value>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>433</xloc>
+      <yloc>360</yloc>
+      </entry>
+    <entry>
+      <name>stock batch download</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;batchdownload.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>source</name>
+            <stream_name/>
+            <value>yahoofin</value>
+            </parameter>            <parameter>            <name>filename</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;downloadstocklist.csv</value>
+            </parameter>            <parameter>            <name>startDay</name>
+            <stream_name>startDay</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>endDay</name>
+            <stream_name>endDay</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>startMonth</name>
+            <stream_name>startMonth</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>endMonth</name>
+            <stream_name>endMonth</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>startYear</name>
+            <stream_name>startYear</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>endYear</name>
+            <stream_name>endYear</stream_name>
+            <value/>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>437</xloc>
+      <yloc>253</yloc>
+      </entry>
+    <entry>
+      <name>set date parts for start and end day download</name>
+      <description/>
+      <type>EVAL</type>
+      <script>dateStartParam &#x3d; parent_job.getVariable&#x28;&#x22;dateStart&#x22;&#x29;&#x3b;&#xa;startDay &#x3d; dateStartParam.substring&#x28;0,2&#x29;&#x3b;&#xa;startMonth &#x3d; dateStartParam.substring&#x28;3,5&#x29;&#x3b;&#xa;startYear &#x3d; dateStartParam.substring&#x28;6&#x29;&#x3b;&#xa;dateEndParam &#x3d; parent_job.getVariable&#x28;&#x22;dateEnd&#x22;&#x29;&#x3b;&#xa;endDay &#x3d; dateEndParam.substring&#x28;0,2&#x29;&#x3b;&#xa;endMonth &#x3d; dateEndParam.substring&#x28;3,5&#x29;&#x3b;&#xa;endYear &#x3d; dateEndParam.substring&#x28;6&#x29;&#x3b;&#xa;</script>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>278</xloc>
+      <yloc>290</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
+      <from>Create datamining test sets for all stocks</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>forex  batch download</from>
+      <to>Create datamining test sets for all stocks</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>stock batch download</from>
+      <to>Create datamining test sets for all stocks</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>START</from>
-      <to>stocks batch download</to>
+      <to>forex  batch download</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>stock batch download</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>set date parts for start and end day download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -196,26 +335,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>stocks batch download</from>
-      <to>forex download and DB update</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>forex download and DB update</from>
-      <to>Create datamining test sets for all stocks</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Create datamining test sets for all stocks</from>
-      <to>Success</to>
+      <from>set date parts for start and end day download</from>
+      <to>stock batch download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

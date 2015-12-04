@@ -4,13 +4,53 @@
     <description/>
     <extended_description/>
     <job_version/>
-    <job_status>0</job_status>
+    <job_status>1</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2015&#x2f;10&#x2f;11 12&#x3a;19&#x3a;31.816</created_date>
   <modified_user>-</modified_user>
   <modified_date>2015&#x2f;10&#x2f;11 12&#x3a;19&#x3a;31.816</modified_date>
     <parameters>
+        <parameter>
+            <name>endDay</name>
+            <default_value>01</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>endMonth</name>
+            <default_value>01</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>endYear</name>
+            <default_value>2025</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>filename</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>source</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>startDay</name>
+            <default_value>01</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>startMonth</name>
+            <default_value>01</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>startYear</name>
+            <default_value>2015</default_value>
+            <description/>
+        </parameter>
     </parameters>
   <connection>
     <name>postgres</name>
@@ -51,12 +91,12 @@
    <shared_objects_file/>
   <entries>
     <entry>
-      <name>batch stocks download</name>
+      <name>get list of stocks Param</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;listOfStocks.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;listOfStocksParam.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -77,11 +117,35 @@
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+            <parameter>            <name>filename</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>source</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>dayFrom</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>dayTo</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>monthFrom</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>monthTo</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>yearFrom</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>yearTo</name>
+            <stream_name/>
+            <value/>
+            </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>485</xloc>
-      <yloc>96</yloc>
+      <xloc>365</xloc>
+      <yloc>104</yloc>
       </entry>
     <entry>
       <name>One stock download and DB load</name>
@@ -108,21 +172,33 @@
       <pass_export>N</pass_export>
       <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>FILENAME</name>
-            <stream_name>filename</stream_name>
+            <parameter>            <name>endDay</name>
+            <stream_name/>
             <value/>
-            </parameter>            <parameter>            <name>STOCK</name>
-            <stream_name>stock</stream_name>
+            </parameter>            <parameter>            <name>endMonth</name>
+            <stream_name/>
             <value/>
-            </parameter>            <parameter>            <name>URL</name>
-            <stream_name>uri</stream_name>
+            </parameter>            <parameter>            <name>endYear</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>source</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>startDay</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>startMonth</name>
+            <stream_name/>
+            <value/>
+            </parameter>            <parameter>            <name>startYear</name>
+            <stream_name/>
             <value/>
             </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>735</xloc>
-      <yloc>98</yloc>
+      <xloc>734</xloc>
+      <yloc>102</yloc>
       </entry>
     <entry>
       <name>START</name>
@@ -151,41 +227,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>997</xloc>
-      <yloc>88</yloc>
-      </entry>
-    <entry>
-      <name>Truncate stocks table</name>
-      <description/>
-      <type>TRUNCATE_TABLES</type>
-      <connection>postgres</connection>
-      <arg_from_previous>N</arg_from_previous>
-      <fields>
-        <field>
-          <name>stocks</name>
-          <schemaname>public</schemaname>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>276</xloc>
+      <xloc>990</xloc>
       <yloc>98</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>batch stocks download</from>
+      <from>get list of stocks Param</from>
       <to>One stock download and DB load</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Truncate stocks table</from>
-      <to>batch stocks download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -203,7 +252,7 @@
     </hop>
     <hop>
       <from>START</from>
-      <to>Truncate stocks table</to>
+      <to>get list of stocks Param</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

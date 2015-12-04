@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>oneUriDownloadDBUpload</name>
+  <name>stocks batchdownload</name>
     <description/>
     <extended_description/>
     <job_version/>
@@ -11,17 +11,23 @@
   <modified_user>-</modified_user>
   <modified_date>2015&#x2f;10&#x2f;11 12&#x3a;19&#x3a;31.816</modified_date>
     <parameters>
-        <parameter>
-            <name>Code</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>uri</name>
-            <default_value/>
-            <description/>
-        </parameter>
     </parameters>
+  <connection>
+    <name>postgres</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>postgres</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -45,68 +51,12 @@
    <shared_objects_file/>
   <entries>
     <entry>
-      <name>HTTP download one ASX code to file</name>
-      <description/>
-      <type>HTTP</type>
-      <url/>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;downloadedstockdata&#x2f;&#x24;&#x7b;Code&#x7d;.csv</targetfilename>
-      <file_appended>N</file_appended>
-      <date_time_added>N</date_time_added>
-      <targetfilename_extention>csv</targetfilename_extention>
-      <uploadfilename/>
-      <url_fieldname>uri</url_fieldname>
-      <run_every_row>Y</run_every_row>
-      <username/>
-      <password>Encrypted </password>
-      <proxy_host/>
-      <proxy_port/>
-      <non_proxy_hosts/>
-      <addfilenameresult>Y</addfilenameresult>
-      <headers>
-      </headers>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>456</xloc>
-      <yloc>199</yloc>
-      </entry>
-    <entry>
-      <name>START</name>
-      <description/>
-      <type>SPECIAL</type>
-      <start>Y</start>
-      <dummy>N</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>94</xloc>
-      <yloc>96</yloc>
-      </entry>
-    <entry>
-      <name>Success</name>
-      <description/>
-      <type>SUCCESS</type>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1047</xloc>
-      <yloc>134</yloc>
-      </entry>
-    <entry>
-      <name>oneStockFileToDB</name>
+      <name>batch stocks download</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;oneStockFileToDB.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;listOfStocks.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -127,35 +77,106 @@
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>CODE</name>
-            <stream_name/>
-            <value/>
-            </parameter>            <parameter>            <name>FILENAME</name>
-            <stream_name/>
-            <value/>
-            </parameter>            <parameter>            <name>STOCK</name>
-            <stream_name/>
-            <value/>
-            </parameter>      </parameters>      <parallel>N</parallel>
+      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>739</xloc>
-      <yloc>200</yloc>
+      <xloc>485</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>One stock download and DB load</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;oneUriDownload_DBUpload.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>Y</params_from_previous>
+      <exec_per_row>Y</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>FILENAME</name>
+            <stream_name>filename</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>STOCK</name>
+            <stream_name>stock</stream_name>
+            <value/>
+            </parameter>            <parameter>            <name>URL</name>
+            <stream_name>uri</stream_name>
+            <value/>
+            </parameter>      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>735</xloc>
+      <yloc>98</yloc>
+      </entry>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>107</xloc>
+      <yloc>101</yloc>
+      </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>997</xloc>
+      <yloc>88</yloc>
+      </entry>
+    <entry>
+      <name>Truncate stocks table</name>
+      <description/>
+      <type>TRUNCATE_TABLES</type>
+      <connection>postgres</connection>
+      <arg_from_previous>N</arg_from_previous>
+      <fields>
+        <field>
+          <name>stocks</name>
+          <schemaname>public</schemaname>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>276</xloc>
+      <yloc>98</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>START</from>
-      <to>HTTP download one ASX code to file</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>HTTP download one ASX code to file</from>
-      <to>oneStockFileToDB</to>
+      <from>batch stocks download</from>
+      <to>One stock download and DB load</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -163,13 +184,31 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>oneStockFileToDB</from>
+      <from>Truncate stocks table</from>
+      <to>batch stocks download</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>One stock download and DB load</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Truncate stocks table</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
